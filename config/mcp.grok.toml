@@ -1,0 +1,6 @@
+# ~/.grok/config.toml
+# Replace the path with the absolute path of your clone.
+
+[mcp_servers.tokens-reset]
+command = "node"
+args = ["D:/path/to/tokens-reset-dashboard/bin/mcp.js"]

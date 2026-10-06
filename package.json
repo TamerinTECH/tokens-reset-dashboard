@@ -1,0 +1,47 @@
+{
+  "name": "tokens-reset-dashboard",
+  "version": "0.2.0",
+  "description": "Usage and reset times of your coding CLIs (Claude Code, Codex, Grok Build) in the terminal, as a local page, and over MCP. Local files only.",
+  "license": "MIT",
+  "author": "TamerinTECH",
+  "homepage": "https://github.com/TamerinTECH/tokens-reset-dashboard#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TamerinTECH/tokens-reset-dashboard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TamerinTECH/tokens-reset-dashboard/issues"
+  },
+  "type": "module",
+  "bin": {
+    "tokens-reset": "bin/cli.js"
+  },
+  "files": [
+    "adapters",
+    "bin",
+    "config",
+    "docs",
+    "lib",
+    "public",
+    "schema"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node bin/cli.js",
+    "open": "node bin/cli.js open",
+    "setup": "node bin/cli.js setup",
+    "mcp": "node bin/mcp.js",
+    "test": "node --test"
+  },
+  "keywords": [
+    "claude-code",
+    "codex",
+    "grok",
+    "rate-limit",
+    "usage",
+    "mcp",
+    "cli"
+  ]
+}

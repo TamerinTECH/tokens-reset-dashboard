@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/TamerinTECH/tokens-reset-dashboard/blob/main/schema/usage.schema.json",
+  "title": "Reset times file",
+  "description": "On-disk readings, kept in ~/.tokens-reset/usage.json. Personal data. Do not commit it.",
+  "type": "object",
+  "required": ["version", "tools"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "const": 1 },
+    "tools": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/tool" }
+    }
+  },
+  "$defs": {
+    "tool": {
+      "type": "object",
+      "required": ["id", "name", "windows"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{0,63}$" },
+        "name": { "type": "string" },
+        "vendor": { "type": ["string", "null"] },
+        "plan": { "type": ["string", "null"] },
+        "source": { "type": ["string", "null"] },
+        "note": { "type": ["string", "null"] },
+        "credits": { "type": ["number", "null"], "minimum": 0 },
+        "observedAt": { "type": ["string", "null"], "format": "date-time" },
+        "updatedAt": { "type": ["string", "null"], "format": "date-time" },
+        "windows": {
+          "type": "array",
+          "maxItems": 12,
+          "items": { "$ref": "#/$defs/window" }
+        }
+      }
+    },
+    "window": {
+      "type": "object",
+      "required": ["id", "label", "unit"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{0,63}$" },
+        "label": { "type": "string" },
+        "used": { "type": ["number", "null"], "minimum": 0 },
+        "limit": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+        "unit": { "enum": ["percent", "tokens", "credits"] },
+        "resetsAt": { "type": ["string", "null"], "format": "date-time" }
+      }
+    }
+  }
+}

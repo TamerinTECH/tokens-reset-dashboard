@@ -1,0 +1,217 @@
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  src: url("fonts/atkinson-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  src: url("fonts/atkinson-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Fraunces;
+  src: url("fonts/fraunces.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --paper: #e6edf3;
+  --ink: #172433;
+  --muted: #3e5163;
+  --line: #c5d1dc;
+  --track: #d3dde6;
+  --full: #8d2e2e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Atkinson Hyperlegible", "Segoe UI", sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.45;
+}
+
+main {
+  max-width: 58rem;
+  margin: 0;
+  padding: 2.25rem 1.15rem 4.5rem;
+}
+
+.site {
+  margin: 0 0 2.25rem;
+  font-family: Fraunces, "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 560;
+  letter-spacing: -0.02em;
+}
+
+.hero h1,
+.tool h2 {
+  margin: 0;
+  font-family: Fraunces, "Iowan Old Style", Palatino, Georgia, serif;
+  font-weight: 560;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+}
+
+.remain {
+  margin: 0.35rem 0 0.15rem;
+  font-family: Fraunces, "Iowan Old Style", Palatino, Georgia, serif;
+  font-weight: 560;
+  font-size: clamp(4.25rem, 12vw, 7rem);
+  line-height: 0.88;
+  letter-spacing: -0.045em;
+  font-variant-numeric: tabular-nums;
+}
+
+.window-name,
+.when,
+.age,
+.plan,
+.hint,
+.note,
+.credits,
+.foot,
+.lede,
+.problem {
+  max-width: 36rem;
+}
+
+.window-name,
+.plan {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+}
+
+.when {
+  margin: 0.15rem 0 0;
+  font-size: 1.2rem;
+}
+
+.age,
+.hint,
+.note,
+.credits,
+.foot,
+.lede {
+  margin: 0.55rem 0 0;
+  color: var(--muted);
+}
+
+.problem {
+  margin: 0 0 1.25rem;
+  color: var(--full);
+}
+
+.tools {
+  margin-top: 2.5rem;
+}
+
+.tool {
+  margin: 0;
+  padding: 1.2rem 0 1.25rem 0.85rem;
+  border-top: 1px solid var(--line);
+  border-left: 4px solid var(--tool, var(--line));
+}
+
+.tool h2 {
+  font-size: 1.7rem;
+}
+
+.window {
+  display: grid;
+  grid-template-columns: 8.5rem minmax(5rem, 1fr) 4.75rem minmax(8.5rem, 13rem);
+  gap: 0.35rem 1rem;
+  align-items: center;
+  margin-top: 0.9rem;
+}
+
+.window-label,
+.amount,
+.reset {
+  font-variant-numeric: tabular-nums;
+}
+
+.amount {
+  text-align: right;
+  font-weight: 700;
+}
+
+.amount.is-full,
+.reset.is-past {
+  color: var(--full);
+}
+
+.track {
+  height: 0.7rem;
+  background: var(--track);
+}
+
+.fill {
+  height: 100%;
+  background: var(--tool, var(--ink));
+}
+
+.reset {
+  text-align: right;
+}
+
+.foot {
+  margin-top: 2rem;
+  font-size: 0.98rem;
+}
+
+@media (min-width: 900px) {
+  main {
+    padding: 3.25rem 6vw 5rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .window {
+    grid-template-columns: 1fr auto;
+    gap: 0.3rem 0.75rem;
+  }
+
+  .track {
+    grid-column: 1 / -1;
+    order: 3;
+  }
+
+  .window-label {
+    order: 1;
+  }
+
+  .amount {
+    order: 2;
+  }
+
+  .reset {
+    order: 4;
+    grid-column: 1 / -1;
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fill {
+    transition: none;
+  }
+}

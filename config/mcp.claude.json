@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "tokens-reset": {
+      "command": "node",
+      "args": ["D:/path/to/tokens-reset-dashboard/bin/mcp.js"]
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "statusLine": {
+    "type": "command",
+    "command": "node \"D:/path/to/tokens-reset-dashboard/adapters/claude-statusline.mjs\""
+  }
+}
